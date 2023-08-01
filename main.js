@@ -9,19 +9,27 @@ vinaMar,
 santiago
 } from './data.js'
 
+// import { cityClima } from './function.js';
+
 
 //******************* Variables globales ********************/
 var calamaClimaArrChart = [];
 var aricaClimaArrChart = [];
 var iquiqueClimaArrChart = [];
-
-var chartClimasArray = [];
-var chartNamesArray = [];
+var antofaClimaArrChart = [];
+var conceClimaArrChart = [];
+var valpClimaArrChart = [];
 
 var calamaName = [];
 var aricaName = [];
 var iquiqueName = [];
+var antofaName = [];
+var conceName = [];
+var valpName = [];
 
+//**** Arrays clima y ciudades
+var chartClimasArray = [];
+var chartNamesArray = [];
 
 
 // ******************* FETCH DATA (clima actual ciudad +nombre ciudad) *******************
@@ -30,13 +38,12 @@ const calamaClima = async () => {
     const response = await fetch(calama)
     const objData = await response.json()
 
-   const calamaClimaArr = await [Math.floor(objData.main.temp)]
+   const climaArr = await [Math.floor(objData.main.temp)]
    const name = await[objData.name]
 
-    calamaClimaArrChart = calamaClimaArr
+    calamaClimaArrChart = climaArr
     calamaName = name
-    // console.log(calamaClimaArr)
-    // return calamaClimaArr
+  
 }
 
 calamaClima()
@@ -46,11 +53,10 @@ const aricaClima = async () => {
     const response = await fetch(arica)
     const objData = await response.json()
 
-    const aricaClimaArr = await [Math.floor(objData.main.temp)]
+    const climaArr = await [Math.floor(objData.main.temp)]
     const name = await[objData.name]
-    // console.log(aricaClimaArr)
-    // return aricaClimaArr
-    aricaClimaArrChart = aricaClimaArr;
+ 
+    aricaClimaArrChart = climaArr;
     aricaName = name
 }
 
@@ -61,19 +67,73 @@ const iquiqueClima = async () => {
     const response = await fetch(iquique)
     const objData = await response.json()
 
-    const iquiqueClimaArr = await [Math.floor(objData.main.temp)]
+    const climaArr = await [Math.floor(objData.main.temp)]
     const name = await[objData.name]
-//     console.log(iquiqueClimaArr)
-//    return await iquiqueClimaArr
 
-iquiqueClimaArrChart = iquiqueClimaArr;
-iquiqueName = name
+    iquiqueClimaArrChart = climaArr;
+    iquiqueName = name
 
 
 }
 
 iquiqueClima()
 
+const antofaClima = async () => {
+
+    const response = await fetch(antofagasta)
+    const objData = await response.json()
+
+    const ClimaArr = await [Math.floor(objData.main.temp)]
+    const name = await[objData.name]
+
+    antofaClimaArrChart = ClimaArr;
+    antofaName  = name
+
+
+}
+
+antofaClima()
+
+const conceClima = async () => {
+
+    const response = await fetch(concepcion)
+    const objData = await response.json()
+
+    const ClimaArr = await [Math.floor(objData.main.temp)]
+    const name = await[objData.name]
+
+    conceClimaArrChart = ClimaArr;
+    conceName  = name
+
+
+}
+
+conceClima()
+
+const valpClima = async () => {
+
+    const response = await fetch(valparaiso)
+    const objData = await response.json()
+
+    const ClimaArr = await [Math.floor(objData.main.temp)]
+    const name = await[objData.name]
+
+    valpClimaArrChart = ClimaArr;
+    valpName  = name
+
+
+}
+
+valpClima()
+
+// async function fetchData() {
+
+//     await cityClima(antofagasta, antofaClimaArrChart, antofaName)
+
+
+// }
+
+// fetchData()
 
 
 // ******************* Crear nuevo Array con t°s y otro con nombres ciudades *******************
@@ -81,11 +141,14 @@ async function createTempArray() {
     await iquiqueClima()
     await aricaClima()
     await calamaClima()
+    await antofaClima()
+    await conceClima()
+    await valpClima()
 
-    const climasArray = [...calamaClimaArrChart, ...aricaClimaArrChart, ...iquiqueClimaArrChart]
+    const climasArray = [...calamaClimaArrChart, ...aricaClimaArrChart, ...iquiqueClimaArrChart, ...antofaClimaArrChart, ...conceClimaArrChart, ...valpClimaArrChart]
     chartClimasArray = climasArray
 
-    const namesArray = [...calamaName, ...aricaName, ...iquiqueName]
+    const namesArray = [...calamaName, ...aricaName, ...iquiqueName, ...antofaName, ...conceName, ...valpName]
     chartNamesArray = namesArray
 
     console.log(chartClimasArray)
@@ -94,6 +157,38 @@ async function createTempArray() {
 }
 
 createTempArray()
+
+//*******************  CHART JS ******************* 
+
+async function tempChart() {
+
+    //esperar a que obtengamos datos de API REST 
+    await createTempArray()
+
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: chartNamesArray,
+      datasets: [{
+        label: 'Clima actual',
+        data: chartClimasArray,
+        borderWidth: 0.5
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+}
+tempChart()
+
 
 
 
