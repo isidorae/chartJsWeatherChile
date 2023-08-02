@@ -4,30 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chart Js weather</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Clima 10 ciudades mejores para vivir en chile</h1>
+    <h1>Las mejores 10 ciudades para vivir en Chile</h1>
+    <div class="image">
+      <img src="turismo.webp" alt="">
+    </div>
     <p>
-      Calama
-      Arica
-      Iquique
-        Antofagasta
-        Concepcion
-        Valparaiso
-        Valdivia
-        La Serena
-        Viña del mar
-        Santiago
+ Se presenta el Clima de estas Ciudades
 
     </p>
-    <br>
-    <p id="dateNow"></p>
-    <div>
-      <canvas id="myChart"></canvas>
-    </div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <canvas id="myChart" style="width: 800px; height: auto;"></canvas>
+      </div>
 
-    <br>
-      <br><br><br><br>
     <script src="main.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
