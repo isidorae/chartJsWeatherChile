@@ -1,9 +1,58 @@
+/****************** estilos generales *******************/
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
+    margin: 0 auto;
     background-color: rgb(233, 233, 233);
     font-family:Arial, Helvetica, sans-serif
 }
 
+h1, h2 {
+    text-align: center;
+}
+
+/****************** header *******************/
+
+.header-container {
+    height: 55vh;
+    background-image: url(./turismo.webp);
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
 .image {
+    height: inherit;
+    background-color:rgba(58, 97, 189, 0.3);
     display: flex;
     justify-content: center;
+}
+
+#date-now {
+    text-align: center;
+}
+
+
+/****************** chart *******************/
+.chart-container {
+    background-color: whitesmoke;
+    height: 30rem;
+    display: flex;
+   justify-content: center;
+}
+
+.chart-div {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
 }
