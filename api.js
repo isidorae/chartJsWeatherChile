@@ -9,3 +9,4 @@ export const cityWheater = async (city = 'santiago') => {
         name
     }
 }
+

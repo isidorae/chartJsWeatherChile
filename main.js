@@ -12,6 +12,7 @@ import { cityWheater } from './api.js';
 
 
 
+
 // ******************* Crear nuevo Array con t°s y otro con nombres ciudades *******************
 async function createTempArray() {
     const calamaData = await cityWheater('calama');
@@ -19,9 +20,11 @@ async function createTempArray() {
     const iquiqueData = await cityWheater('iquique');
     const concepcionData = await cityWheater('concepcion');
     const talcaData = await cityWheater('talca');
-    const puertomonttData = await cityWheater('puerto montt');
+    const puertomonttData = await cityWheater('puerto+montt');
     const valdiviaData = await cityWheater('valdivia');
     const temucoData = await cityWheater('temuco');
+    const valpoData = await cityWheater('valparaiso');
+    const vinaData = await cityWheater('vina+del+mar');
     
 
     const chartClimasArray = [
@@ -33,6 +36,8 @@ async function createTempArray() {
         ...puertomonttData.cityWheaterArr,
         ...valdiviaData.cityWheaterArr,
         ...temucoData.cityWheaterArr,
+        ...valpoData.cityWheaterArr,
+        ...vinaData.cityWheaterArr,
     ]
     
 
@@ -45,7 +50,32 @@ async function createTempArray() {
         ...puertomonttData.name,
         ...valdiviaData.name,
         ...temucoData.name,
+        ...valpoData.name,
+        ...vinaData.name,
     ]
+
+
+    let filterTempBaja = await chartClimasArray.map(element => {
+        if(element <10) {
+            return element
+        }
+    })
+
+    let filterTempMedia = await chartClimasArray.map(element => {
+        if(element >= 10 && element <20) {
+            return element
+        }
+    })
+
+    let filterTempAlta = await chartClimasArray.map(element => {
+        if(element > 20) {
+            return element
+        }
+    })
+
+ 
+
+       //*** chart
 
     const ctx = document.getElementById('myChart');
     new Chart(ctx, {
@@ -53,8 +83,61 @@ async function createTempArray() {
         data: {
             labels: chartNamesArray,
             datasets: [{
-                label: 'Temperatura',
+                label: 'Temp Todas las Ciudades',
                 data: chartClimasArray,
+                backgroundColor: [
+                    //'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                  //  'rgba(54, 162, 235, 0.2)',
+                ],
+
+                borderColor: [
+                    //'rgba(255, 99, 132, 1)',
+                    'rgba(255, 206, 86, 1)',
+                   // 'rgba(54, 162, 235, 1)',
+                ],
+
+                borderWidth: 1
+            },
+            {
+                label: 'Temp° Baja (<10°)',
+                data: filterTempBaja,
+                backgroundColor: [
+                   // 'rgba(255, 99, 132, 0.2)',
+                    //'rgba(255, 206, 86, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+
+                borderColor: [
+                    //'rgba(255, 99, 132, 1)',
+                    //'rgba(255, 206, 86, 1)',
+                    'rgba(54, 162, 235, 1)',
+                ],
+
+                borderWidth: 1
+            },
+            {
+                label: 'Temp° Media (10 a 19°)',
+                data: filterTempMedia,
+                backgroundColor: [
+                    'rgba(47, 152, 72, 0.2)',
+                  //  'rgba(255, 99, 132, 0.2)',
+                   // 'rgba(255, 206, 86, 0.2)',
+                    //'rgba(54, 162, 235, 0.2)',
+                ],
+
+                borderColor: [
+                    'rgba(47, 152, 72, 0.2)',
+                    // 'rgba(255, 99, 132, 1)',
+                    // 'rgba(255, 206, 86, 1)',
+                    // 'rgba(54, 162, 235, 1)',
+                ],
+
+                borderWidth: 1
+            },
+            {
+                label: 'Temp° Alta (>20°)',
+                data: filterTempAlta,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
@@ -68,7 +151,20 @@ async function createTempArray() {
                 ],
 
                 borderWidth: 1
-            }]
+            }
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        ]
         },
         options: {
             responsive: true,
@@ -87,3 +183,4 @@ async function createTempArray() {
 }
 
 createTempArray()
+
