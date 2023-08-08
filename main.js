@@ -184,3 +184,6 @@ async function createTempArray() {
 
 createTempArray()
 
+const fechaActual = new Date()
+console.log(fechaActual)
+document.getElementById('date-now').innerHTML='Fecha Actual:   ' + fechaActual
