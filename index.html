@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chart Js weather</title>
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart Js weather</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
-    <h1>Las mejores 10 ciudades para vivir en Chile</h1>
-  <div class="header-container">
-    <div class="image">
-      <!-- <img src="turismo.webp" alt=""> -->
-    </div>
-  </div>
-    <br><br>
-    <p>
-Lorem ipsum dolor, sit amet consectetur adipisicing elit.
- Libero doloremque odio et, nostrum animi, id sed accusantium mollitia, 
- nam excepturi itaque voluptates cumque veniam nisi voluptas eligendi 
- repudiandae ipsam quibusdam!
+  <header>
+    <h1>CHILE: PAÍS CON DIVERSIDAD CLIMÁTICA</h1>
 
-    </p>
-    <h2>Clima actual de estas ciudades</h2>
-    <p id="date-now">Hoy: 'fecha actual +hra con js'</p>
-    <section class="chart-container">
-      <div class="chart-div">
-        <canvas id="myChart" style="width: 800px; height: auto;"></canvas>
+    <div class="header-container">
+      <div class="image">
+        <!-- <img src="turismo.webp" alt=""> -->
       </div>
-    </section>
+    </div>
+  </header>
+  <br><br>
+  <p>
+    Chile es un país que debido a su morfología presenta una gran variedad de climas a lo largo de su territorio. Es así
+    como podemos encontrar que en la zona norte predomina el clima DESERTICO y SEMIARIDO, mientras que en la zona centro
+    el clima es mayormente MEDITERRANEO, hasta llegar a la zona sur, donde encontramos el clima TEMPLADO OCEÁNICO
+    y ESTEPARIO aún mas al sur.
+    <br>
+    <br>
+    A continuación presentamos un gráfico donde se muestra la temperatura de algunas ciudades de Chile, ordenadas de norte
+    a sur, aquí podemos notar que generalmente las temperaturas son mas altas en las ciudades del norte, mas estables en el centro
+    y mas bajas en la zona sur. Esto, entre otros factores, es lo que produce la DIVERSIDAD CLIMATICA de CHILE.
+    <br>
+    <br>
+    <br>
 
-    <br><br><br><br><br><br><br><br><br><br>
-    <script src="main.js" type="module"></script>
-    <script src="api.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  </p>
+  <h2>GRAFICO DE TEMPERATURA DE LAS CIUDADES</h2>
+  <p id="date-now">Hoy: 'fecha actual +hra con js'</p>
+  <section class="chart-container">
+    <div class="chart-div">
+      <canvas id="myChart" style="width: 800px; height: auto;"></canvas>
+    </div>
+  </section>
+
+  <br><br><br><br><br><br><br><br><br><br>
+  <script src="main.js" type="module"></script>
+  <script src="api.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>
