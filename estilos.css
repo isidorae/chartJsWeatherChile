@@ -18,13 +18,19 @@ body {
 
 h1, h2 {
     text-align: center;
+    color: rgb(65, 65, 65);
+}
+
+p {
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 /****************** header *******************/
 
 .header-container {
     height: 55vh;
-    background-image: url(./turismo.webp);
+    background-image: url(./turismo.jpg);
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
