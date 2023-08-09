@@ -1,5 +1,7 @@
 /****************** estilos generales *******************/
 
+/*titles faustina*/
+/*body: */
 html {
     box-sizing: border-box;
 }
@@ -13,18 +15,30 @@ html {
 body {
     margin: 0 auto;
     background-color: rgb(233, 233, 233);
-    font-family:Arial, Helvetica, sans-serif
+    font-family: 'Open Sans', sans-serif;
+   /* font-family:Arial, Helvetica, sans-serif */
 }
 
-h1, h2 {
+h2 {
+    font-family: 'Faustina', serif;
     text-align: center;
     color: rgb(65, 65, 65);
 }
 
-p {
+h1 {
+    font-family: 'Faustina', serif;
+    color:aliceblue;
+    text-align: center;
+}
+
+article {
     margin-left: 100px;
     margin-right: 100px;
 }
+
+a {
+    text-decoration: none;
+} 
 
 /****************** header *******************/
 
@@ -41,10 +55,16 @@ p {
     background-color:rgba(58, 97, 189, 0.3);
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+
 
 #date-now {
     text-align: center;
+}
+
+.date-container {
+    background-color: #f9ebd1;
 }
 
 
@@ -62,3 +82,18 @@ p {
    align-items: center;
    
 }
+
+
+/****************** footer *******************/
+
+footer {
+    background-color: rgb(59, 57, 57); 
+}
+
+a:hover {
+    color: lightblue !important;
+  }
+
+
+
+/************ BOOSTRAP RESET **********/

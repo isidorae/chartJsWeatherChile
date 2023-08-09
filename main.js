@@ -52,7 +52,7 @@ async function createTempArray() {
     })
 
     let filterTempAlta = await chartClimasArray.map(element => {
-        if (element > 20) {
+        if (element >= 20) {
             return element
         }
     })
@@ -98,7 +98,7 @@ async function createTempArray() {
                 ],
 
                 borderColor: [
-                    'rgba(47, 152, 72, 0.2)',
+                    'rgba(47, 152, 72, 1)',
                 ],
 
                 borderWidth: 1
@@ -108,14 +108,14 @@ async function createTempArray() {
                 data: filterTempAlta,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
+                    //'rgba(255, 206, 86, 0.2)',
+                    //'rgba(54, 162, 235, 0.2)',
                 ],
 
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(54, 162, 235, 1)',
+                    //'rgba(255, 206, 86, 1)',
+                    //'rgba(54, 162, 235, 1)',
                 ],
 
                 borderWidth: 1
@@ -143,4 +143,7 @@ createTempArray()
 
 const fechaActual = new Date()
 console.log(fechaActual)
-document.getElementById('date-now').innerHTML = 'Actualizado al día de hoy:   ' + fechaActual
+document.getElementById('date-now').innerHTML = `
+Actualizado al día de hoy:
+<br>
+<i>${fechaActual}</i>`
