@@ -1,41 +1,41 @@
 import { cityWheater } from './api.js';
 
 async function createTempArray() {
-    const calamaData = await cityWheater('calama');
-    const santiagoData = await cityWheater('santiago');
     const iquiqueData = await cityWheater('iquique');
-    const concepcionData = await cityWheater('concepcion');
-    const talcaData = await cityWheater('talca');
-    const puertomonttData = await cityWheater('puerto+montt');
-    const valdiviaData = await cityWheater('valdivia');
-    const temucoData = await cityWheater('temuco');
-    const valpoData = await cityWheater('valparaiso');
+    const calamaData = await cityWheater('calama');
     const vinaData = await cityWheater('vina+del+mar');
+    const valpoData = await cityWheater('valparaiso');
+    const santiagoData = await cityWheater('santiago');
+    const talcaData = await cityWheater('talca');
+    const concepcionData = await cityWheater('concepcion');
+    const temucoData = await cityWheater('temuco');
+    const valdiviaData = await cityWheater('valdivia');
+    const puertomonttData = await cityWheater('puerto+montt');
 
     const chartClimasArray = [
-        ...calamaData.cityWheaterArr,
-        ...santiagoData.cityWheaterArr,
         ...iquiqueData.cityWheaterArr,
-        ...concepcionData.cityWheaterArr,
-        ...talcaData.cityWheaterArr,
-        ...puertomonttData.cityWheaterArr,
-        ...valdiviaData.cityWheaterArr,
-        ...temucoData.cityWheaterArr,
-        ...valpoData.cityWheaterArr,
+        ...calamaData.cityWheaterArr,
         ...vinaData.cityWheaterArr,
+        ...valpoData.cityWheaterArr,
+        ...santiagoData.cityWheaterArr,
+        ...talcaData.cityWheaterArr,
+        ...concepcionData.cityWheaterArr,
+        ...temucoData.cityWheaterArr,
+        ...valdiviaData.cityWheaterArr,
+        ...puertomonttData.cityWheaterArr,
     ]
 
     const chartNamesArray = [
-        ...calamaData.name,
-        ...santiagoData.name,
         ...iquiqueData.name,
-        ...concepcionData.name,
-        ...talcaData.name,
-        ...puertomonttData.name,
-        ...valdiviaData.name,
-        ...temucoData.name,
-        ...valpoData.name,
+        ...calamaData.name,
         ...vinaData.name,
+        ...valpoData.name,
+        ...santiagoData.name,
+        ...talcaData.name,
+        ...concepcionData.name,
+        ...temucoData.name,
+        ...valdiviaData.name,
+        ...puertomonttData.name,
     ]
 
 
