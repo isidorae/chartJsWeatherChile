@@ -132,6 +132,21 @@ async function createTempArray() {
                 title: {
                     display: true,
                     text: 'Temperaturas por Ciudad'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            let label = context.dataset.label || '';
+
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += context.parsed.y + '°';
+                            }
+                            return label;
+                        }
+                    }
                 }
             },
         },
