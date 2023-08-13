@@ -92,7 +92,7 @@ async function createTempArray() {
           borderWidth: 1,
         },
         {
-          label: "Temp° Alta (>20°)",
+          label: "Temp° Alta (>=20°)",
           data: filterTempAlta,
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
